@@ -401,7 +401,7 @@ class Board extends React.Component {
           </div>
           <div className="hints">
             <div className={this.checkAnswers() ? "CorrectText" : ""}>
-              <span>{this.checkAnswers() ? "Solution Correct!" : "HELLO"}</span>
+              <span>{this.checkAnswers() ? "Solution Correct!" : ""}</span>
             </div>
 
             <div className="border">
