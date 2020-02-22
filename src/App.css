@@ -1,0 +1,156 @@
+body {
+  font: 16px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+ol,
+ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.gameList {
+  display: flex;
+}
+
+.hints {
+  margin: 10px 50px;
+  padding: 10px;
+  max-width: 500px;
+  border: 2px solid #eee;
+}
+
+.border {
+  border: 1.2px solid #ddd;
+  padding: 10px;
+}
+
+.CorrectText,
+.IncorrectText {
+  border: 1.2px solid #ddd;
+  margin: 5px 0px;
+  padding: 5px;
+  width: fit-content;
+  vertical-align: middle;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.CorrectText {
+  color: green;
+}
+
+.IncorrectText {
+  color: red;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.topLabels {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
+  display: grid;
+  vertical-align: top;
+  writing-mode: vertical-rl;
+  margin-left: auto;
+}
+
+.sideLabels {
+  display: grid;
+}
+
+.rows {
+  display: flex;
+}
+
+.grid {
+  float: left;
+  line-height: 34px;
+  height: 34px;
+
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.label.grid.side {
+  border: none;
+  margin-right: 4px;
+  width: fit-content;
+  place-self: flex-end;
+  text-align: right;
+}
+
+.label.grid.top {
+  border: none;
+  margin-top: 4px;
+  height: fit-content;
+  text-align: left;
+}
+
+.square.grid.white {
+  background: white;
+  border: 1px solid #999;
+}
+
+.square.grid.green {
+  background: #30d320;
+  border: 1px solid #999;
+}
+
+.square.grid.red {
+  background: #ff3a3a;
+  border: 1px solid #999;
+}
+
+.SquareSegment {
+  border: 1px solid black;
+  height: fit-content;
+  margin: -1px -1px -1px 0px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.gameBox {
+  display: inline-grid;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.errorText {
+  margin: 20px 10px;
+}
+
+li {
+  list-style-type: none;
+  margin: 5px 0px;
+  padding: 5px 10px;
+  background: #eee;
+}
+
+ul {
+  margin: 0px;
+  padding: 5px 0px;
+}
