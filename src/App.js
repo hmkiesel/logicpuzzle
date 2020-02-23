@@ -399,19 +399,19 @@ class Board extends React.Component {
               </div>
             </div>
           </div>
-          <div className="hints">
+          <div className="border">
+            <div className="hints">
+              <span>Hints:</span>
+              <HintList list={this.state.hints} />
+            </div>
+
             <div className={this.checkAnswers() ? "CorrectText" : ""}>
               <span>{this.checkAnswers() ? "Solution Correct!" : ""}</span>
             </div>
 
-            <div className="border">
-              <span>Hints:</span>
-              <HintList list={this.state.hints} />
-            </div>
+            <div className="errorText">{this.state.status}</div>
           </div>
         </div>
-
-        <span className="errorText">{this.state.status}</span>
       </div>
     );
   }
@@ -423,10 +423,6 @@ class Game extends React.Component {
       <div className="game">
         <div className="game-board">
           <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
         </div>
       </div>
     );
