@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.css";
+import styled from "@emotion/styled";
+import { UseTheme } from "./ThemeContext";
 
 const SQUARE_STATUS = {
   NONE: 0,
@@ -12,6 +14,13 @@ const REGION = {
   LEFT: 1,
   BOTTOM: 2
 };
+
+const Wrapper = styled("div")`
+  background: ${props => props.Theme.background};
+  width: 100vw;
+  height: 100vh;
+  color: ${props => props.Theme.body};
+`;
 
 class Square extends React.Component {
   render() {
@@ -417,17 +426,22 @@ class Board extends React.Component {
   }
 }
 
-class Game extends React.Component {
-  render() {
-    return (
+const Game = () => {
+  const ThemeState = UseTheme();
+
+  return (
+    <Wrapper>
+      <div>
+        <button onClick={() => ThemeState.toggle()}></button>
+      </div>
       <div className="game">
         <div className="game-board">
           <Board />
         </div>
       </div>
-    );
-  }
-}
+    </Wrapper>
+  );
+};
 
 // ========================================
 

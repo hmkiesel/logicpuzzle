@@ -1,6 +1,7 @@
 # logicpuzzle
 
 logic puzzle game
+http://www.logicpuzzles.netlify.com
 
 ===========================
 
