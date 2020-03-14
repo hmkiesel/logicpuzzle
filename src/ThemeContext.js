@@ -18,7 +18,7 @@ const useEffectDarkMode = () => {
     hasThemeLoaded: false
   });
   React.useEffect(() => {
-    const isDark = localStorage.getItem("dark") === "true"; //if doesn't work, try: JSON.stringify(true);
+    const isDark = false; // localStorage.getItem("dark") === "true"; //if doesn't work, try: JSON.stringify(true);
     setThemeState({
       ...themeState,
       dark: isDark,
