@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import styled from "@emotion/styled";
-import { UseTheme } from "./ThemeContext";
+//import { UseTheme } from "./ThemeContext";
 
 const SQUARE_STATUS = {
   NONE: 0,
