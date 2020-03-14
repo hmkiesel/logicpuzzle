@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider as EmotionThemeProvider } from "emotion-theming";
-import { Theme } from "./Theme";
+import Theme from "./Theme";
 
 const DefaultContextData = {
   dark: false,
@@ -24,7 +24,7 @@ const useEffectDarkMode = () => {
       dark: isDark,
       hasThemeLoaded: true
     });
-  }, []);
+  }, [ThemeState]);
 
   return [ThemeState, SetThemeState];
 };

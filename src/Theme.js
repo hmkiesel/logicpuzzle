@@ -20,4 +20,4 @@ const ThemeDark = {
 
 const Theme = mode => (mode === "dark" ? ThemeDark : ThemeLight); // MODE.DARK ? ThemeDark : ThemeLight);
 
-export { Theme };
+export default Theme;
