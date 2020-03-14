@@ -13,11 +13,11 @@ const ThemeDark = {
   body: WHITE
 };
 
-const MODE = {
+/*const MODE = {
   LIGHT: 0,
   DARK: 1
-};
+};*/
 
-const Theme = mode => (mode === MODE.DARK ? ThemeDark : ThemeLight);
+const Theme = mode => (mode === "dark" ? ThemeDark : ThemeLight); // MODE.DARK ? ThemeDark : ThemeLight);
 
-export { Theme, MODE };
+export { Theme };
