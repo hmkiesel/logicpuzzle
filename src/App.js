@@ -432,7 +432,9 @@ const Game = () => {
   return (
     <Wrapper>
       <div>
-        <button onClick={() => ThemeState.toggle()}></button>
+        <button onClick={() => ThemeState.toggle()}>
+          {ThemeState.dark ? "Light Mode" : "Dark Mode"}
+        </button>
       </div>
       <div className="game">
         <div className="game-board">
