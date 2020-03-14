@@ -427,20 +427,17 @@ class Board extends React.Component {
 }
 
 const Game = () => {
-  const ThemeState = UseTheme();
+  //const ThemeState = UseTheme();
   //<button onClick={() => ThemeState.toggle()}>
   //        {ThemeState.dark ? "Light Mode" : "Dark Mode"}
   //      </button>
 
   return (
-    <Wrapper>
-      <div></div>
-      <div className="game">
-        <div className="game-board">
-          <Board />
-        </div>
+    <div className="game">
+      <div className="game-board">
+        <Board />
       </div>
-    </Wrapper>
+    </div>
   );
 };
 
