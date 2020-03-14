@@ -16,10 +16,10 @@ const REGION = {
 };
 
 const Wrapper = styled("div")`
-  background: ${props => props.Theme.background};
+  background: ${props => props.theme.background};
   width: 100vw;
   height: 100vh;
-  color: ${props => props.Theme.body};
+  color: ${props => props.theme.body};
 `;
 
 class Square extends React.Component {

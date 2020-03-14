@@ -1,32 +1,32 @@
 import React from "react";
 import { ThemeProvider as EmotionThemeProvider } from "emotion-theming";
-import Theme from "./Theme";
+import theme from "./Theme";
 
-const DefaultContextData = {
+const defaultContextData = {
   dark: false,
   toggle: () => {}
 };
 
-const ThemeContext = React.createContext(DefaultContextData);
-const UseTheme = () => {
-  React.useContext(ThemeContext);
+const themeContext = React.createContext(defaultContextData);
+const useTheme = () => {
+  React.useContext(themeContext);
 };
 
 const useEffectDarkMode = () => {
-  const [ThemeState, SetThemeState] = React.useState({
+  const [themeState, setThemeState] = React.useState({
     dark: false,
     hasThemeLoaded: false
   });
   React.useEffect(() => {
     const isDark = localStorage.getItem("dark") === "true"; //if doesn't work, try: JSON.stringify(true);
-    SetThemeState({
-      ...ThemeState,
+    setThemeState({
+      ...themeState,
       dark: isDark,
       hasThemeLoaded: true
     });
-  }, [ThemeState]);
+  }, [themeState]);
 
-  return [ThemeState, SetThemeState];
+  return [themeState, setThemeState];
 };
 
 const ThemeProvider = ({ children }) => {
@@ -42,20 +42,20 @@ const ThemeProvider = ({ children }) => {
     SetThemeState({ ...ThemeState, dark });
   };
 
-  const computedTheme = ThemeState.dark ? Theme("dark") : Theme("dark");
+  const computedTheme = ThemeState.dark ? theme("dark") : theme("dark");
 
   return (
     <EmotionThemeProvider Theme={computedTheme}>
-      <ThemeContext.Provider
+      <themeContext.Provider
         value={{
           dark: ThemeState.dark,
           toggle
         }}
       >
         {children}
-      </ThemeContext.Provider>
+      </themeContext.Provider>
     </EmotionThemeProvider>
   );
 };
 
-export { ThemeProvider, UseTheme };
+export { ThemeProvider, useTheme as UseTheme };
