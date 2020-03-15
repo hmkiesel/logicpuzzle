@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import styled from "@emotion/styled";
-//import { UseTheme } from "./ThemeContext";
+import { useTheme } from "./ThemeContext";
 
 const SQUARE_STATUS = {
   NONE: 0,
@@ -427,17 +427,21 @@ class Board extends React.Component {
 }
 
 const Game = () => {
-  //const ThemeState = UseTheme();
-  //<button onClick={() => ThemeState.toggle()}>
-  //        {ThemeState.dark ? "Light Mode" : "Dark Mode"}
-  //      </button>
-
+  const ThemeState = useTheme();
+  //{ThemeState.dark ? "Light Mode" : "Dark Mode"}
   return (
-    <div className="game">
-      <div className="game-board">
-        <Board />
+    <Wrapper>
+      <div>
+        <button onClick={() => ThemeState.toggle()}>
+          {ThemeState.dark ? "Light Mode" : "Dark Mode"}
+        </button>
       </div>
-    </div>
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+      </div>
+    </Wrapper>
   );
 };
 

@@ -1,16 +1,14 @@
 import React from "react";
 import { ThemeProvider as EmotionThemeProvider } from "emotion-theming";
-import theme from "./Theme";
+import theme from "./Theme.js";
 
 const defaultContextData = {
   dark: false,
   toggle: () => {}
 };
 
-const themeContext = React.createContext(defaultContextData);
-const useTheme = () => {
-  React.useContext(themeContext);
-};
+const ThemeContext = React.createContext(defaultContextData);
+const useTheme = () => React.useContext(ThemeContext);
 
 const useEffectDarkMode = () => {
   const [themeState, setThemeState] = React.useState({
@@ -18,44 +16,44 @@ const useEffectDarkMode = () => {
     hasThemeLoaded: false
   });
   React.useEffect(() => {
-    const isDark = false; // localStorage.getItem("dark") === "true"; //if doesn't work, try: JSON.stringify(true);
+    const isDark = localStorage.getItem("dark") === "true"; //if doesn't work, try: JSON.stringify(true);
     setThemeState({
       ...themeState,
       dark: isDark,
       hasThemeLoaded: true
     });
-  }, [themeState]);
+  }, []);
 
   return [themeState, setThemeState];
 };
 
 const ThemeProvider = ({ children }) => {
-  const [ThemeState, SetThemeState] = useEffectDarkMode();
+  const [themeState, setThemeState] = useEffectDarkMode();
 
-  if (!ThemeState.hasThemeLoaded) {
+  if (!themeState.hasThemeLoaded) {
     return <div />;
   }
 
   const toggle = () => {
-    const dark = !ThemeState.dark;
+    console.log(themeState);
+    const dark = !themeState.dark;
     localStorage.setItem("dark", JSON.stringify(dark));
-    SetThemeState({ ...ThemeState, dark });
+    setThemeState({ ...themeState, dark });
   };
 
-  const computedTheme = ThemeState.dark ? theme("dark") : theme("dark");
-
+  const computedTheme = themeState.dark ? theme("dark") : theme("light");
   return (
-    <EmotionThemeProvider Theme={computedTheme}>
-      <themeContext.Provider
+    <EmotionThemeProvider theme={computedTheme}>
+      <ThemeContext.Provider
         value={{
-          dark: ThemeState.dark,
+          dark: themeState.dark,
           toggle
         }}
       >
         {children}
-      </themeContext.Provider>
+      </ThemeContext.Provider>
     </EmotionThemeProvider>
   );
 };
 
-export { ThemeProvider, useTheme as UseTheme };
+export { ThemeProvider, useTheme };
